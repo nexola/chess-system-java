@@ -1,5 +1,6 @@
 package application;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -47,6 +48,14 @@ public class UI {
         }
     }
 
+    // Print instructions for the current player
+    public static void printMatch(ChessMatch chessMatch) {
+        printBoard(chessMatch.getPieces());
+        System.out.println();
+        System.out.println("Turn : " + chessMatch.getTurn());
+        System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+    }
+
     // Print the table using the square matrix 8x8
     public static void printBoard(ChessPiece[][] pieces) {
         for (int i = 0; i < pieces.length; i++) {
@@ -71,7 +80,7 @@ public class UI {
         System.out.println(ANSI_GREEN + "  A B C D E F G H" + ANSI_RESET);
     }
 
-    // Posiciona uma peça no lugar desejado, se o valor de peça estiver vazio, imprime um - indicando espaço vazio no tabuleiro
+    // Places a piece in the desired place, if the piece value is empty, prints an "-" indicating empty space on the board
     private static void printPiece(ChessPiece piece, boolean background) {
         if (background) {
             System.out.print(ANSI_BLUE_BACKGROUND);
