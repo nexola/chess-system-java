@@ -47,12 +47,24 @@ public class UI {
         }
     }
 
-    // Imprime o tabuleiro utilizando a matriz quadrada 8x8
+    // Print the table using the square matrix 8x8
     public static void printBoard(ChessPiece[][] pieces) {
         for (int i = 0; i < pieces.length; i++) {
             System.out.print(ANSI_GREEN + (8 - i) + " " + ANSI_RESET);
             for (int j = 0; j < pieces.length; j++) {
-                printPiece(pieces[i][j]);
+                printPiece(pieces[i][j], false);
+            }
+            System.out.println();
+        }
+        System.out.println(ANSI_GREEN + "  A B C D E F G H" + ANSI_RESET);
+    }
+
+    // Coloring background of possible moves
+    public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+        for (int i = 0; i < pieces.length; i++) {
+            System.out.print(ANSI_GREEN + (8 - i) + " " + ANSI_RESET);
+            for (int j = 0; j < pieces.length; j++) {
+                printPiece(pieces[i][j], possibleMoves[i][j]);
             }
             System.out.println();
         }
@@ -60,9 +72,12 @@ public class UI {
     }
 
     // Posiciona uma peça no lugar desejado, se o valor de peça estiver vazio, imprime um - indicando espaço vazio no tabuleiro
-    private static void printPiece(ChessPiece piece) {
+    private static void printPiece(ChessPiece piece, boolean background) {
+        if (background) {
+            System.out.print(ANSI_BLUE_BACKGROUND);
+        }
         if (piece == null) {
-            System.out.print("-");
+            System.out.print("-" + ANSI_RESET);
         } else {
             if (piece.getColor() == Color.WHITE) {
                 System.out.print(ANSI_WHITE + piece + ANSI_RESET);
