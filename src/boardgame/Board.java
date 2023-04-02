@@ -25,7 +25,7 @@ public class Board {
         return columns;
     }
 
-    // Posicona a peça para o local desejado
+    // Return the piece position
     public Piece piece(int row, int column) {
         if (!positionExists(row, column)) {
             throw new BoardException("Position not on the board");
@@ -33,7 +33,6 @@ public class Board {
         return pieces[row][column];
     }
 
-    // Seleciona a posição da peça
     public Piece piece(Position position) {
         if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
@@ -41,13 +40,27 @@ public class Board {
         return pieces[position.getRow()][position.getColumn()];
     }
 
-    // Move a peça de posição
+    // Place the instantiated piece
     public void placePiece(Piece piece, Position position) {
         if (thereIsAPiece(position)) {
             throw new BoardException("There is already a piece on position " + position);
         }
         pieces[position.getRow()][position.getColumn()] = piece;
         piece.position = position;
+    }
+
+    // Remove the piece from the board
+    public Piece removePiece(Position position) {
+        if (!positionExists(position)) {
+            throw new BoardException("Position not on the board");
+        }
+        if (piece(position) == null) {
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
     }
 
     // Testing if the position exists
