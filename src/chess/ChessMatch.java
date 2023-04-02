@@ -9,13 +9,13 @@ import chess.pieces.Rook;
 public class ChessMatch {
     private Board board;
 
-    // Inica um novo tabuleiro
+    // Starts a new board (Chess Match)
     public ChessMatch() {
         board = new Board(8, 8);
         initialSetup();
     }
 
-    // Percorre o tabuleiro
+    // Traverses the entire board
     public ChessPiece[][] getPieces() {
         ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
         for (int i = 0; i < board.getRows(); i++) {
@@ -48,8 +48,12 @@ public class ChessMatch {
         if (!board.thereIsAPiece(position)) {
             throw new ChessException("There is no piece on source position.");
         }
+        if (!board.piece(position).isThereAnyPossibleMove()) {
+            throw new ChessException("There is no possible moves for the chosen piece");
+        }
     }
 
+    // Places a new piece
     private void placeNewPiece(char column, int row, ChessPiece piece) {
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
