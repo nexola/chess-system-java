@@ -5,7 +5,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-// PAWN // PEÃO
+// PAWN | PEÃO
 public class Pawn extends ChessPiece {
     public Pawn(Board board, Color color) {
         super(board, color);

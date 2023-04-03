@@ -5,7 +5,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-// KING - REI
+// KING | REI
 public class King extends ChessPiece {
     public King(Board board, Color color) {
         super(board, color);
