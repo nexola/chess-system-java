@@ -1,4 +1,4 @@
-# chess-system-java
+# CHESS SYSTEM JAVA
 
 Chess game made interely in java.
 
