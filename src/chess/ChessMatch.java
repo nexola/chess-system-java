@@ -3,10 +3,7 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import chess.pieces.Bishop;
-import chess.pieces.King;
-import chess.pieces.Pawn;
-import chess.pieces.Rook;
+import chess.pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -209,6 +206,10 @@ public class ChessMatch {
         // White King
         placeNewPiece('e', 1, new King(board, Color.WHITE));
 
+        // White knights
+        placeNewPiece('b', 1, new Knight(board, Color.WHITE));
+        placeNewPiece('g', 1, new Knight(board, Color.WHITE));
+
 
         // White Bishops
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
@@ -241,6 +242,10 @@ public class ChessMatch {
         // Black Rooks
         placeNewPiece('a', 8, new Rook(board, Color.BLACK));
         placeNewPiece('h', 8, new Rook(board, Color.BLACK));
+
+        // Black knights
+        placeNewPiece('b', 8, new Knight(board, Color.BLACK));
+        placeNewPiece('g', 8, new Knight(board, Color.BLACK));
 
         // Black bishops
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
