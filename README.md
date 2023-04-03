@@ -2,7 +2,8 @@
 
 Chess game made interely in java.
 
-This project is part of an POO Udemy course, which helped me to have a better vision about the java attributes, classes and methods
+This project is part of an POO Udemy course, which helped me to have a better vision about the java attributes, classes and methods.
+
 In this project I worked and improved my knowledges in:
 - Encapsulation
 - Constructors
