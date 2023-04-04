@@ -1,6 +1,6 @@
 # CHESS SYSTEM JAVA
 
-Chess game made interely in java.
+Chess game made entirely in java.
 
 This project is part of an POO Udemy course, which helped me to have a better vision about the java attributes, classes and methods.
 
